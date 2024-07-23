@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CA Registration Form</title>
+<style>
+    body { margin: 30px; font-family: Arial, sans-serif; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+
+    th, td { border: 1px solid #0e0a0a; padding: 8px; text-align: center; }
+    button { margin-top: 10px; }
+</style>
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+    function addRow() {
+        var newRow = `
+            <tr>
+                <td><input type="text" name="registration[]" /></td>
+                <td><input type="text" name="testOne[]" /></td>
+                <td><input type="text" name="testTwo[]" /></td>
+                <td><input type="text" name="assignment[]" /></td>
+                <td><input type="text" name="total[]" /></td>
+            </tr>`;
+        $('#caTable tbody').append(newRow);
+    }
+
+    function deleteRow() {
+        $('#caTable tbody tr:last').remove();
+    }
+</script>
+</head>
+<body>
+    <h2>UDOM CONTINOUS ASSESSMENT  REGISTRATION FORM</h2>
+    <form onsubmit="">
+        <table id="caTable">
+            <thead>
+                <tr>
+                    <th>Registration #</th>
+                    <th>Test One(%)</th>
+                    <th>Test Two(%)</th>
+                    <th>Assignment(%)</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="registration[]" value="T/UDOM/2010/039999" /></td>
+                    <td><input type="text" name="testOne[]" value="80" /></td>
+                    <td><input type="text" name="testTwo[]" value="70" /></td>
+                    <td><input type="text" name="assignment[]" value="60" /></td>
+                    <td><input type="text" name="total[]" value="35" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" onclick="addRow()">Add Row</button>
+        <button type="button" onclick="deleteRow()">Delete Row</button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
